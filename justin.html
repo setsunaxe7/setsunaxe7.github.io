@@ -34,6 +34,7 @@
         .intro, .gallery, .fan-interaction {
             margin-bottom: 30px;
             padding: 20px;
+            text-align: center;
         }
 
         h2 {
@@ -41,31 +42,24 @@
         }
 
         .gallery {
-            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .gallery img {
             width: 100%;
-            max-width: 400px;
-            display: block;
-            margin: 0 auto;
+            max-width: 180px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery button {
-            background-color: #ff6a88;
-            color: white;
-            padding: 10px 20px;
-            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            border-radius: 5px;
-            margin: 10px;
-            transition: background-color 0.3s;
         }
 
-        .gallery button:hover {
-            background-color: #ff3f5e;
+        .gallery img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
 
         .fan-interaction button {
@@ -76,6 +70,7 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
+            text-align: center;
         }
 
         .fan-interaction button:hover {
@@ -107,10 +102,13 @@
 
         <section class="gallery">
             <h2>Gallery</h2>
-            <img id="galleryImage" src="justinbieberimgs/justin1.jpg" alt="Justin Bieber">
-            <br>
-            <button onclick="previousImage()">Previous</button>
-            <button onclick="nextImage()">Next</button>
+            <!-- Gallery Thumbnails -->
+            <img src="justinbieberimgs/justin1.jpg" alt="Justin Bieber Image 1">
+            <img src="justinbieberimgs/justin2.jpg" alt="Justin Bieber Image 2">
+            <img src="justinbieberimgs/justin3.jpg" alt="Justin Bieber Image 3">
+            <img src="justinbieberimgs/justin4.jpg" alt="Justin Bieber Image 4">
+            <img src="justinbieberimgs/justin5.jpg" alt="Justin Bieber Image 5">
+            <img src="justinbieberimgs/justin6.jpg" alt="Justin Bieber Image 6">
         </section>
 
         <section class="fan-interaction">
@@ -123,31 +121,5 @@
     <footer>
         <p>&copy; 2024 Justin Bieber Fan Club. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Array of image file names for the gallery
-        const images = [
-            "justinbieberimgs/justin2.jpg",
-            "justinbieberimgs/justin3.jpg",
-            "justinbieberimgs/justin4.jpg",
-            "justinbieberimgs/justin5.jpg",
-            "justinbieberimgs/justin6.jpg",
-        ];
-
-        // Initialize current image index
-        let currentIndex = 0;
-
-        // Function to show the next image
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
-            document.getElementById("galleryImage").src = images[currentIndex];
-        }
-
-        // Function to show the previous image
-        function previousImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to the last image
-            document.getElementById("galleryImage").src = images[currentIndex];
-        }
-    </script>
 </body>
 </html>
